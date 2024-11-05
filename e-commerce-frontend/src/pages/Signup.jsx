@@ -23,7 +23,7 @@ const Signup = () => {
       <Typography variant="h4" component="h1" gutterBottom>
         Cadastro
       </Typography>
-      <form onSubmit={handleSignup}>
+      <form className='' onSubmit={handleSignup}>
         <TextField
           label="Nome"
           variant="outlined"

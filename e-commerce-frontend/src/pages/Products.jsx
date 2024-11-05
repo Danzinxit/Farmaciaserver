@@ -10,9 +10,9 @@ const Products = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       const data = [
-        { id: 1, name: 'Produto A', description: 'Descrição do Produto A', price: 10.00 },
-        { id: 2, name: 'Produto B', description: 'Descrição do Produto B', price: 20.00 },
-        { id: 3, name: 'Produto C', description: 'Descrição do Produto C', price: 30.00 },
+        { id: 1, name: 'Trembolona', description: 'Descrição do Produto A', price: 200.00 },
+        { id: 2, name: 'Emogenim', description: 'Descrição do Produto B', price: 200.00 },
+        { id: 3, name: 'GH', description: 'Descrição do Produto C', price: 300.00 },
       ];
       setProducts(data);
     };
@@ -46,7 +46,7 @@ const Products = () => {
                 <Button
                   variant="contained"
                   color="primary"
-                  style={{ marginTop: '10px' }}
+                  style={{ marginTop: '20px' }}
                   onClick={() => handleAddToCart(product)}
                 >
                   Adicionar ao Carrinho
