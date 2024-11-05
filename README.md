@@ -50,7 +50,7 @@ Instalação e Configuração
 1. Clonar o Repositório
 bash
 
-git clone https://github.com/seu-usuario/nome-do-repositorio.git
+git clone https:https://github.com/Danzinxit/Farmaciaserver.git
 cd nome-do-repositorio
 2. Instalar as Dependências
 Frontend
