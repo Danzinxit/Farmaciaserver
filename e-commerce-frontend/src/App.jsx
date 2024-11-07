@@ -6,7 +6,8 @@ import Products from './pages/Products';
 import Cart from './pages/Cart';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
-import Checkout from './pages/Checkout';  // Importe a nova página de Checkout
+import Checkout from './pages/Checkout';
+import OrderHistory from './pages/OrderHistory'; // Importe a página de Histórico de Pedidos
 
 function App() {
   return (
@@ -18,7 +19,8 @@ function App() {
         <Route path="/cart" element={<Cart />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/checkout" element={<Checkout />} /> {/* Nova rota para Checkout */}
+        <Route path="/checkout" element={<Checkout />} />
+        <Route path="/order-history" element={<OrderHistory />} /> {/* Adiciona a rota para Histórico de Pedidos */}
       </Routes>
     </div>
   );
