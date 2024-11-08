@@ -2,3 +2,57 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Estilos gerais */
+.checkout-container {
+    background-color: #121212; /* fundo preto */
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .checkout-title {
+    text-align: center;
+    color: #f44336; /* Vermelho */
+    margin-bottom: 2rem;
+  }
+  
+  .checkout-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .checkout-input {
+    background-color: #333;
+    color: white;
+    border: 1px solid #f44336; /* Borda vermelha */
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .checkout-input:hover,
+  .checkout-input:focus {
+    border-color: #f44336;
+    background-color: #444;
+  }
+  
+  .checkout-button {
+    background-color: #f44336; /* Vermelho */
+    color: white;
+    border-radius: 4px;
+    padding: 1rem;
+    transition: background-color 0.3s ease;
+  }
+  
+  .checkout-button:hover {
+    background-color: #d32f2f; /* Vermelho mais escuro */
+  }
+  
+  button:disabled {
+    background-color: #bdbdbd;
+    cursor: not-allowed;
+  }
+  
+  .mb-4 {
+    margin-bottom: 1.5rem;
+  }
+  

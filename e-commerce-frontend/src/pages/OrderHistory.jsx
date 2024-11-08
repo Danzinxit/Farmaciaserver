@@ -1,7 +1,5 @@
-
-
 import React, { useState, useEffect } from 'react';
-import { Container, Typography, List, ListItem, ListItemText, Button, Divider } from '@mui/material';
+import { Container, Typography, List, ListItem, ListItemText, Button, Divider, Chip, Box } from '@mui/material';
 import { Link } from 'react-router-dom';
 
 const OrderHistory = () => {
@@ -13,36 +11,58 @@ const OrderHistory = () => {
     setOrders(storedOrders);
   }, []);
 
+  // Função para estilizar o status
+  const getStatusChip = (status) => {
+    switch (status) {
+      case 'Aguardando Pagamento':
+        return <Chip label={status} color="warning" size="small" />;
+      case 'Enviado':
+        return <Chip label={status} color="primary" size="small" />;
+      case 'Entregue':
+        return <Chip label={status} color="success" size="small" />;
+      default:
+        return <Chip label={status} color="default" size="small" />;
+    }
+  };
+
   return (
-    <Container maxWidth="md" className="my-12">
-      <Typography variant="h4" component="h1" gutterBottom className="text-center text-2xl mb-8">
+    <Container maxWidth="md" sx={{ my: 4 }}>
+      <Typography variant="h4" component="h1" gutterBottom align="center" sx={{ mb: 4 }}>
         Histórico de Pedidos
       </Typography>
 
       {/* Se não houver pedidos */}
       {orders.length === 0 ? (
-        <Typography variant="body1" className="text-center">
+        <Typography variant="body1" align="center" sx={{ color: 'text.secondary' }}>
           Você ainda não fez nenhum pedido.
         </Typography>
       ) : (
-        <List>
+        <List sx={{ bgcolor: 'background.paper', borderRadius: 1 }}>
           {orders.map((order, index) => (
-            <div key={index}>
+            <Box key={index} sx={{ mb: 2, border: '1px solid #e0e0e0', borderRadius: 1, p: 2 }}>
               <ListItem>
                 <ListItemText
-                  primary={`Pedido em ${order.date}`}
-                  secondary={`Status: ${order.status}`}
+                  primary={`Pedido em ${new Date(order.date).toLocaleDateString()}`}
+                  secondary={
+                    <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                      {getStatusChip(order.status)} {/* Exibindo o status com a estilização */}
+                    </Box>
+                  }
                 />
               </ListItem>
               <Divider />
-            </div>
+            </Box>
           ))}
         </List>
       )}
 
-      <div className="text-center mt-8">
-        <Link to="/" className="text-blue-500">Voltar para a Home</Link>
-      </div>
+      <Box sx={{ textAlign: 'center', mt: 4 }}>
+        <Link to="/" style={{ textDecoration: 'none' }}>
+          <Button variant="outlined" color="primary" size="large">
+            Voltar para a Home
+          </Button>
+        </Link>
+      </Box>
     </Container>
   );
 };

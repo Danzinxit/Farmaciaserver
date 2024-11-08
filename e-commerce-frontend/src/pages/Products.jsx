@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { Container, Typography, Grid, Card, CardContent, Button } from '@mui/material';
-import { useCart } from '../context/CartContext';
+import { useCart } from '../context/CartContext';  // Assumindo que você já tem o contexto de carrinho
 
 const Products = () => {
   const [products, setProducts] = useState([]);
-  const { addToCart } = useCart();
+  const { addToCart } = useCart();  // Hook de carrinho
 
   useEffect(() => {
-    // Produtos com os mesmos nomes e descrições da Home
+    // Dados de exemplo para os produtos
     const fetchProducts = async () => {
       const data = [
         {
@@ -38,35 +38,39 @@ const Products = () => {
     fetchProducts();
   }, []);
 
+  // Função para adicionar o produto ao carrinho
   const handleAddToCart = (product) => {
     addToCart(product);
     alert(`${product.name} foi adicionado ao carrinho!`);
   };
 
   return (
-    <Container className="py-8">
-      <Typography variant="h4" component="h1" gutterBottom className="text-center text-3xl font-semibold text-gray-800">
+    <Container className="py-8 bg-white">
+      <Typography variant="h4" component="h1" gutterBottom className="text-center text-3xl font-semibold text-black mb-12">
         Todos os Produtos
       </Typography>
 
-      <Grid container spacing={2}>
+      <Grid container spacing={3}>
         {products.map((product) => (
           <Grid item xs={12} sm={6} md={4} key={product.id}>
-            <Card className="shadow-lg rounded-lg">
+            <Card className="bg-black text-black shadow-lg rounded-lg hover:shadow-2xl transition transform hover:scale-105">
               <CardContent>
                 <img
                   src={product.image}
                   alt={product.name}
-                  className="w-full h-48 object-cover rounded-lg mb-4"
+                  className="w-full h-64 object-cover rounded-lg mb-4 border-2 border-gray-600"
                 />
-                <Typography variant="h5" className="font-semibold text-gray-900">{product.name}</Typography>
-                <Typography variant="body2" className="text-gray-600">{product.description}</Typography>
-                <Typography variant="h6" className="text-gray-900 mt-2">R$ {product.price.toFixed(2)}</Typography>
+                <Typography variant="h5" className="font-semibold text-black">{product.name}</Typography>
+                <Typography variant="body2" className="text-black mt-2">{product.description}</Typography>
+                <Typography variant="h6" className="text-black mt-2">R$ {product.price.toFixed(2)}</Typography>
+
+             
                 <Button
                   variant="contained"
-                  color="primary"
-                  style={{ marginTop: '20px' }}
+                  color="error"
+                  fullWidth
                   onClick={() => handleAddToCart(product)}
+                  className="mt-4"
                 >
                   Adicionar ao Carrinho
                 </Button>

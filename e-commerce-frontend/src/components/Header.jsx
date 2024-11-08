@@ -3,18 +3,43 @@ import { Link } from 'react-router-dom';
 
 const Header = () => {
   return (
-    <header className="bg-gray-800 text-white shadow-md">
+    <header className="bg-gradient-to-r from-black via-red-600 to-black text-white shadow-md">
       <div className="max-w-7xl mx-auto px-4 py-5 flex justify-between items-center">
         <div className="flex items-center space-x-4">
           {/* Logo ou nome do site */}
-          <h1 className="text-2xl font-bold">Farmácia de Anabolizantes</h1>
+          <h1 className="text-2xl font-bold text-white hover:text-red-600 transition-colors duration-300">
+            Farmácia de Anabolizantes
+          </h1>
         </div>
         <nav className="space-x-6 hidden md:flex">
-          <Link to="/" className="hover:text-blue-400 transition-colors">Home</Link>
-          <Link to="/products" className="hover:text-blue-400 transition-colors">Produtos</Link>
-          <Link to="/cart" className="hover:text-blue-400 transition-colors">Carrinho</Link>
-          <Link to="/login" className="hover:text-blue-400 transition-colors">Login</Link>
-          <Link to="/signup" className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md transition-all">
+          <Link 
+            to="/" 
+            className="hover:text-red-600 transition-colors duration-300 ease-in-out transform hover:scale-105"
+          >
+            Home
+          </Link>
+          <Link 
+            to="/products" 
+            className="hover:text-red-600 transition-colors duration-300 ease-in-out transform hover:scale-105"
+          >
+            Produtos
+          </Link>
+          <Link 
+            to="/cart" 
+            className="hover:text-red-600 transition-colors duration-300 ease-in-out transform hover:scale-105"
+          >
+            Carrinho
+          </Link>
+          <Link 
+            to="/login" 
+            className="hover:text-red-600 transition-colors duration-300 ease-in-out transform hover:scale-105"
+          >
+            Login
+          </Link>
+          <Link 
+            to="/signup" 
+            className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-md transition-all duration-300 ease-in-out transform hover:scale-105"
+          >
             Cadastrar
           </Link>
         </nav>
